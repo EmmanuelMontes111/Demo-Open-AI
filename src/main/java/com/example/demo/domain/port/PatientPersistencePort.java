@@ -12,6 +12,7 @@ public interface PatientPersistencePort {
 
     List<Patient> getAll();
 
-    void deletePatient(Patient client);
+    void deletePatient(Long identificationNumber,Patient client);
 
+    Patient update(Long identificationNumber, Patient patient);
 }

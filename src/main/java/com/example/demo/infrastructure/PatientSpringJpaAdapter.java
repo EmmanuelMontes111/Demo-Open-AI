@@ -53,9 +53,15 @@ public class PatientSpringJpaAdapter implements PatientPersistencePort {
 
 
     @Override
-    public void deletePatient(Patient client) {
-        PatientEntity patientEntityToSave = modelToEntity(client);
-        patientRepository.delete(patientEntityToSave);
+    public void deletePatient(Long identificationNumber, Patient client) {
+        PatientEntity patientEntityToDelete = modelToEntity(client);
+        patientRepository.delete(patientEntityToDelete.toBuilder().id(identificationNumber).build());
+    }
+
+    @Override
+    public Patient update(Long identificationNumber, Patient patient) {
+        PatientEntity patientEntity = modelToEntity(patient);
+        return entityToModel(patientRepository.save(patientEntity.toBuilder().id(identificationNumber).build()));
     }
 
 

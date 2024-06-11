@@ -1,21 +1,15 @@
-package com.example.demo.infrastructure.adapter.entity;
+package com.example.demo.domain.dto;
 
-
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Builder(toBuilder = true)
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "patient")
-public class PatientEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class PatientDto {
     private String name;
     private String career;
     private Long documentNumber;
