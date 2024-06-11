@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.infrastructure.rest_controler.openai;
 
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.ai.image.ImageClient;
